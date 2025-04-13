@@ -4,30 +4,41 @@ import openMRSUtility.BaseDriver;
 import openMRSUtility.WebTool;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class navigationToLoginPage extends BaseDriver {
-     By demoLink = By.cssSelector("a[class='zak-button']");
-     By demoButton = By.cssSelector("a[href='https://demo.openmrs.org/openmrs/login.htm']");
-     By loginIcon = By.cssSelector("i[class='icon-lock small']");
-     By loginText = By.cssSelector("legend[class='w-auto']");
+    public navigationToLoginPage() {
+        PageFactory.initElements(BaseDriver.driver, this);
+    }
+
+    @FindBy(css = "a[class='zak-button']")
+    public WebElement demoLink;
+    @FindBy(css = "a[href='https://demo.openmrs.org/openmrs/login.htm']")
+    public WebElement demoButton;
+    @FindBy(css = "i[class='icon-lock small']")
+    public WebElement loginIcon;
+    @FindBy(css = "legend[class='w-auto']")
+    public WebElement loginText;
 
     public void enterTheDemoSite() {
         driver.get("https://openmrs.org/en/");
-
-        WebTool.waitForVisibilityAndClick(driver.findElement(demoLink));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[class='zak-button']")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[class='zak-button']")));
+        demoLink.click();
 
         wait.until(ExpectedConditions.urlContains("g%C3%B6steri"));
 
-        actionDriver.scrollToElement(driver.findElement(demoButton)).click().build().perform();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(demoButton));
+        actionDriver.scrollToElement(demoButton).click().build().perform();
+        wait.until(ExpectedConditions.visibilityOf(demoButton));
         wait.until(ExpectedConditions.elementToBeClickable(demoButton));
-        actionDriver.scrollToElement(driver.findElement(demoButton)).moveToElement(driver.findElement(demoButton)).click().build().perform();
+        actionDriver.scrollToElement(demoButton).moveToElement(demoButton).click().build().perform();
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(loginIcon));
+        wait.until(ExpectedConditions.visibilityOf(loginIcon));
     }
-    public boolean loginPageDisplayed(){
-        WebElement text=driver.findElement(loginText);
-        return text.getText().toLowerCase().equalsIgnoreCase("logın");
+
+    public boolean loginPageDisplayed() {
+        return loginText.getText().toLowerCase().equalsIgnoreCase("logın");
     }
 }
