@@ -25,5 +25,12 @@ public class US_407 extends BaseDriver {
         WebElement findPatientButton= driver.findElement(By.xpath("//a[@id='coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension']"));
         wait.until(ExpectedConditions.elementToBeClickable(findPatientButton));
         findPatientButton.click();
+        WebElement searchBox= driver.findElement(By.id("patient-search"));
+        wait.until(ExpectedConditions.visibilityOf(searchBox));
+        searchBox.sendKeys("100M9M");
+        WebElement patient= driver.findElement(By.xpath("//*[text()='100M9M']"));
+        wait.until(ExpectedConditions.visibilityOf(patient));
+        patient.click();
+
     }
 }
