@@ -21,6 +21,12 @@ public class navigationToLoginPage extends BaseDriver {
     public WebElement loginIcon;
     @FindBy(css = "legend[class='w-auto']")
     public WebElement loginText;
+    @FindBy(id = "username")
+    public WebElement loginUsername;
+    @FindBy(id = "password")
+    public WebElement loginPassword;
+    @FindBy(id = "loginButton")
+    public WebElement login;
 
     public void enterTheDemoSite() {
         driver.get("https://openmrs.org/en/");
