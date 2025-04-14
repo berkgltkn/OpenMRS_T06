@@ -3,13 +3,11 @@ package openMRS.navigationToLoginPage;
 import openMRSUtility.BaseDriver;
 import openMRSUtility.MyFunc;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.util.List;
+import org.testng.asserts.SoftAssert;
 
 public class US_402 extends BaseDriver {
     @Test(priority = 1)
@@ -33,8 +31,9 @@ public class US_402 extends BaseDriver {
 
     @Test(dataProvider = "userCredentials", priority = 2, dependsOnMethods = {"verifyNavigation"})
     public void loginWithError(String username, String password) {
+        SoftAssert softAssert = new SoftAssert();
         Login_POM loginPageCredential = new Login_POM();
-        MyFunc myfunc = new MyFunc();
+        MyFunc myFunc = new MyFunc();
 
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginUsername));
         wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginUsername));
@@ -44,28 +43,30 @@ public class US_402 extends BaseDriver {
 
         switch (username) {
             case "Test1":
-                myfunc.locationError();
+                myFunc.locationError();
                 break;
             case "Test2":
-                myfunc.locationError();
+                myFunc.locationError();
                 break;
             case "Test3":
-                myfunc.locationError();
+                myFunc.locationError();
                 break;
             case "Test4":
-                myfunc.usernameAndPasswordError();
+                myFunc.usernameAndPasswordError();
                 break;
             case "Test5":
-                myfunc.usernameAndPasswordError();
+                myFunc.usernameAndPasswordError();
                 break;
             case "Test6":
-                myfunc.usernameAndPasswordError();
+                myFunc.usernameAndPasswordError();
                 break;
             case "admin":
                 wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
-                randomSelection();
+                myFunc.randomSelection();
                 actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
                 wait.until(ExpectedConditions.urlContains("referenceapplication"));
+                Assert.assertTrue(driver.getCurrentUrl().contains("referenceapplication"),"Başarıyla geçilemedi.");
+                softAssert.assertAll();
                 break;
         }
     }
@@ -84,13 +85,4 @@ public class US_402 extends BaseDriver {
         return loginCredentials;
     }
 
-    public static void randomSelection() {
-        List<WebElement> locationList = driver.findElements(By.cssSelector("ul[id='sessionLocation'] > li"));
-        int randomNumberForElements = MyFunc.RandomSayiVer(locationList.size());
-        WebElement randomElement = locationList.get(randomNumberForElements);
-
-        wait.until(ExpectedConditions.elementToBeClickable(randomElement));
-        wait.until(ExpectedConditions.visibilityOf(randomElement));
-        actionDriver.moveToElement(randomElement).click().build().perform();
-    }
 }
