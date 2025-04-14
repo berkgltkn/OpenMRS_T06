@@ -26,25 +26,11 @@ public class navigationToLoginPage extends BaseDriver {
     @FindBy(id = "password")
     public WebElement loginPassword;
     @FindBy(id = "loginButton")
-    public WebElement login;
-
-    public void enterTheDemoSite() {
-        driver.get("https://openmrs.org/en/");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[class='zak-button']")));
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[class='zak-button']")));
-        demoLink.click();
-
-        wait.until(ExpectedConditions.urlContains("g%C3%B6steri"));
-
-        actionDriver.scrollToElement(demoButton).click().build().perform();
-        wait.until(ExpectedConditions.visibilityOf(demoButton));
-        wait.until(ExpectedConditions.elementToBeClickable(demoButton));
-        actionDriver.scrollToElement(demoButton).moveToElement(demoButton).click().build().perform();
-
-        wait.until(ExpectedConditions.visibilityOf(loginIcon));
-    }
-
-    public boolean loginPageDisplayed() {
-        return loginText.getText().toLowerCase().equalsIgnoreCase("logın");
-    }
+    public WebElement loginButton;
+    @FindBy(xpath = "//*[@id='sessionLocationError']")
+    public WebElement loginErrorMessage;
+    @FindBy(xpath = "//*[@id='error-message']")
+    public WebElement loginErrorMessageInvalid;
+    @FindBy(xpath = "//*[@id='Inpatient Ward']")
+    public WebElement inpatientWardLocation;
 }
