@@ -27,10 +27,16 @@ public class US_407 extends BaseDriver {
         findPatientButton.click();
         WebElement searchBox= driver.findElement(By.id("patient-search"));
         wait.until(ExpectedConditions.visibilityOf(searchBox));
-        searchBox.sendKeys("100M9M");
-        WebElement patient= driver.findElement(By.xpath("//*[text()='100M9M']"));
+        searchBox.sendKeys("1000W3");
+        WebElement patient= driver.findElement(By.xpath("//*[text()='1000W3']"));
         wait.until(ExpectedConditions.visibilityOf(patient));
         patient.click();
+        WebElement deleteButton= driver.findElement(By.xpath("(//div[@class='col-11 col-lg-10'])[8]"));
+        wait.until(ExpectedConditions.elementToBeClickable(deleteButton));
+        deleteButton.click();
+        WebElement reason=driver.findElement(By.id("delete-reason"));
+        wait.until(ExpectedConditions.visibilityOf(reason));
+        reason.sendKeys("ıncorrect");
 
     }
 }
