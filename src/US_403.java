@@ -23,11 +23,12 @@ public class US_403 extends BaseDriver {
         WebElement username = driver.findElement(By.id("username"));
         wait.until(ExpectedConditions.visibilityOf(username));
         username.sendKeys("admin");
-
         WebElement password = driver.findElement(By.id("password"));
         wait.until(ExpectedConditions.visibilityOf(password));
         password.sendKeys("Admin123");
-
+        WebElement location = driver.findElement(By.id("Inpatient Ward"));
+        wait.until(ExpectedConditions.elementToBeClickable(location));
+        location.click();
     }
 }
 
