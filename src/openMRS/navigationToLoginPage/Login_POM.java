@@ -1,15 +1,12 @@
 package openMRS.navigationToLoginPage;
 
 import openMRSUtility.BaseDriver;
-import openMRSUtility.WebTool;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class navigationToLoginPage extends BaseDriver {
-    public navigationToLoginPage() {
+public class Login_POM extends BaseDriver {
+    public Login_POM() {
         PageFactory.initElements(BaseDriver.driver, this);
     }
 
@@ -31,6 +28,4 @@ public class navigationToLoginPage extends BaseDriver {
     public WebElement loginErrorMessage;
     @FindBy(id = "error-message")
     public WebElement loginErrorMessageInvalid;
-    @FindBy(css = "ul[id='sessionLocation']> li")
-    public WebElement selectionList;
 }

@@ -2,23 +2,19 @@ package openMRS.navigationToLoginPage;
 
 import openMRSUtility.BaseDriver;
 import openMRSUtility.MyFunc;
-import openMRSUtility.WebTool;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class US_LoginCase extends BaseDriver {
+public class US_401 extends BaseDriver {
     @Test(priority = 1)
     public void verifyNavigation() {
-        navigationToLoginPage loginPageCredential = new navigationToLoginPage();
+        Login_POM loginPageCredential = new Login_POM();
         driver.get("https://openmrs.org/en/");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[class='zak-button']")));
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[class='zak-button']")));
@@ -32,12 +28,14 @@ public class US_LoginCase extends BaseDriver {
         actionDriver.scrollToElement(loginPageCredential.demoButton).moveToElement(loginPageCredential.demoButton).click().build().perform();
 
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginIcon));
-        Assert.assertTrue(loginPageCredential.loginText.getText().toLowerCase().equalsIgnoreCase("logın"), "Login'e geçilemediş.");
+        Assert.assertTrue(loginPageCredential.loginText.getText().toLowerCase().equalsIgnoreCase("logın"), "Login'e geçilemedi.");
     }
 
     @Test(dataProvider = "userCredentials", priority = 2, dependsOnMethods = {"verifyNavigation"})
     public void loginWithError(String username, String password) {
-        navigationToLoginPage loginPageCredential = new navigationToLoginPage();
+        Login_POM loginPageCredential = new Login_POM();
+        MyFunc myfunc = new MyFunc();
+
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginUsername));
         wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginUsername));
 
@@ -46,44 +44,32 @@ public class US_LoginCase extends BaseDriver {
 
         switch (username) {
             case "Test1":
-                wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
-                actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
-                Assert.assertTrue(loginPageCredential.loginErrorMessage.getText().contains("You must choose a location!"), "Location seçildi.");
-                driver.navigate().refresh();
+                myfunc.locationError();
                 break;
             case "Test2":
-                wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
-                actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
-                Assert.assertTrue(loginPageCredential.loginErrorMessage.getText().contains("You must choose a location!"), "Location seçildi.");
-                driver.navigate().refresh();
+                myfunc.locationError();
                 break;
             case "Test3":
-                wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
-                actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
-                Assert.assertTrue(loginPageCredential.loginErrorMessage.getText().contains("You must choose a location!"), "Location seçildi.");
-                driver.navigate().refresh();
+                myfunc.locationError();
                 break;
             case "Test4":
-                wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
-                randomSelection();
-                actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
-                Assert.assertTrue(loginPageCredential.loginErrorMessageInvalid.getText().contains("Invalid username"), "Password şifre doğru");
-                driver.navigate().refresh();
+                myfunc.usernameAndPasswordError();
                 break;
             case "Test5":
-                wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
-                randomSelection();
-                actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
-                Assert.assertTrue(loginPageCredential.loginErrorMessageInvalid.getText().contains("Invalid username"), "Password şifre doğru");
-                driver.navigate().refresh();
+                myfunc.usernameAndPasswordError();
+                break;
+            case "Test6":
+                myfunc.usernameAndPasswordError();
                 break;
             case "admin":
+                wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
                 randomSelection();
                 actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
                 wait.until(ExpectedConditions.urlContains("referenceapplication"));
                 break;
         }
     }
+
     @DataProvider
     Object[][] userCredentials() {
         Object[][] loginCredentials = {
@@ -92,10 +78,11 @@ public class US_LoginCase extends BaseDriver {
                 {"Test3", "Admin123"},
                 {"Test4", "Admin123"},
                 {"Test5", "Admin123"},
-                {"admin", "Admin123"},
+                {"Test6", "admin123"},
         };
         return loginCredentials;
     }
+
     public static void randomSelection() {
         List<WebElement> locationList = driver.findElements(By.cssSelector("ul[id='sessionLocation'] > li"));
         int randomNumberForElements = MyFunc.RandomSayiVer(locationList.size());
