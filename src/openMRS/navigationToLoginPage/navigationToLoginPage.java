@@ -27,10 +27,10 @@ public class navigationToLoginPage extends BaseDriver {
     public WebElement loginPassword;
     @FindBy(id = "loginButton")
     public WebElement loginButton;
-    @FindBy(xpath = "//*[@id='sessionLocationError']")
+    @FindBy(id = "sessionLocationError")
     public WebElement loginErrorMessage;
-    @FindBy(xpath = "//*[@id='error-message']")
+    @FindBy(id = "error-message")
     public WebElement loginErrorMessageInvalid;
-    @FindBy(xpath = "//*[@id='Inpatient Ward']")
-    public WebElement inpatientWardLocation;
+    @FindBy(css = "ul[id='sessionLocation']> li")
+    public WebElement selectionList;
 }
