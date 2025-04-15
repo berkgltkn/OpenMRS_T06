@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class US_401 extends BaseDriver {
 
     @Test(dataProvider = "userCredentials", priority = 2, dependsOnMethods = {"verifyNavigation"})
     public void loginWithError(String username, String password) {
+        SoftAssert softAssert = new SoftAssert();
         Login_POM loginPageCredential = new Login_POM();
         MyFunc myfunc = new MyFunc();
 
@@ -63,9 +65,11 @@ public class US_401 extends BaseDriver {
                 break;
             case "admin":
                 wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
-                randomSelection();
+                myfunc.randomSelection();
                 actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
                 wait.until(ExpectedConditions.urlContains("referenceapplication"));
+                Assert.assertTrue(driver.getCurrentUrl().contains("referenceapplication"),"Başarıyla geçilemedi.");
+                softAssert.assertAll();
                 break;
         }
     }
@@ -83,13 +87,4 @@ public class US_401 extends BaseDriver {
         return loginCredentials;
     }
 
-    public static void randomSelection() {
-        List<WebElement> locationList = driver.findElements(By.cssSelector("ul[id='sessionLocation'] > li"));
-        int randomNumberForElements = MyFunc.RandomSayiVer(locationList.size());
-        WebElement randomElement = locationList.get(randomNumberForElements);
-
-        wait.until(ExpectedConditions.elementToBeClickable(randomElement));
-        wait.until(ExpectedConditions.visibilityOf(randomElement));
-        actionDriver.moveToElement(randomElement).click().build().perform();
-    }
 }
