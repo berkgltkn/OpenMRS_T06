@@ -29,6 +29,9 @@ public class US_403 extends BaseDriver {
         WebElement location = driver.findElement(By.id("Inpatient Ward"));
         wait.until(ExpectedConditions.elementToBeClickable(location));
         location.click();
+        WebElement loginButton = driver.findElement(By.id("loginButton"));
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton));
+        loginButton.click();
     }
 }
 
