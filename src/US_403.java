@@ -32,6 +32,15 @@ public class US_403 extends BaseDriver {
         WebElement loginButton = driver.findElement(By.id("loginButton"));
         wait.until(ExpectedConditions.elementToBeClickable(loginButton));
         loginButton.click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href*='logout']")));
+        WebElement logoutButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href*='logout']")));
+        Assert.assertTrue(logoutButton.isDisplayed(), "Logout butonu görünmüyor!");
+        logoutButton.click();
+        WebElement loginHeader = wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h4")));
+        Assert.assertTrue(loginHeader.getText().contains("Enter your username and password"));
     }
 }
+
+
+
 
