@@ -1,4 +1,5 @@
-import openMRS.navigationToLoginPage.US_LoginCase;
+
+import openMRS.navigationToLoginPage.Login_POM;
 import openMRSUtility.BaseDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -6,10 +7,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
 public class US_407 extends BaseDriver {
-    US_LoginCase usLoginCase=new US_LoginCase();
+
     @Test
     public void PatientDeletion(){
-        usLoginCase.verifyNavigation();
+        Login_POM loginPageCredential = new Login_POM();
+        driver.get("https://openmrs.org/en/");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[class='zak-button']")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[class='zak-button']")));
+        loginPageCredential.demoLink.click();
+        wait.until(ExpectedConditions.urlContains("g%C3%B6steri"));
+        actionDriver.scrollToElement(loginPageCredential.demoButton).click().build().perform();
+        wait.until(ExpectedConditions.visibilityOf(loginPageCredential.demoButton));
+        wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.demoButton));
+        actionDriver.scrollToElement(loginPageCredential.demoButton).moveToElement(loginPageCredential.demoButton).click().build().perform();
         WebElement usurname=driver.findElement(By.id("username"));
         wait.until(ExpectedConditions.visibilityOf(usurname));
         usurname.sendKeys("admin");
