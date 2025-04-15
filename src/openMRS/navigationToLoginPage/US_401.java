@@ -1,17 +1,20 @@
 package openMRS.navigationToLoginPage;
 
 import openMRSUtility.BaseDriver;
+import openMRSUtility.MyFunc;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class US_LoginCase extends BaseDriver {
+import java.util.List;
 
+public class US_401 extends BaseDriver {
     @Test(priority = 1)
     public void verifyNavigation() {
-        navigationToLoginPage loginPageCredential = new navigationToLoginPage();
+        Login_POM loginPageCredential = new Login_POM();
         driver.get("https://openmrs.org/en/");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[class='zak-button']")));
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[class='zak-button']")));
@@ -25,65 +28,68 @@ public class US_LoginCase extends BaseDriver {
         actionDriver.scrollToElement(loginPageCredential.demoButton).moveToElement(loginPageCredential.demoButton).click().build().perform();
 
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginIcon));
-        Assert.assertTrue(loginPageCredential.loginText.getText().toLowerCase().equalsIgnoreCase("logın"), "Login'e geçilemediş.");
+        Assert.assertTrue(loginPageCredential.loginText.getText().toLowerCase().equalsIgnoreCase("logın"), "Login'e geçilemedi.");
     }
 
     @Test(dataProvider = "userCredentials", priority = 2, dependsOnMethods = {"verifyNavigation"})
     public void loginWithError(String username, String password) {
-        navigationToLoginPage loginPageCredential = new navigationToLoginPage();
+        Login_POM loginPageCredential = new Login_POM();
+        MyFunc myfunc = new MyFunc();
+
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginUsername));
         wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginUsername));
 
-        loginPageCredential.loginUsername.clear();
-        loginPageCredential.loginPassword.clear();
-
         loginPageCredential.loginUsername.sendKeys(username);
         loginPageCredential.loginPassword.sendKeys(password);
+
         switch (username) {
             case "Test1":
-                firstThree();
+                myfunc.locationError();
+                break;
             case "Test2":
-                firstThree();
+                myfunc.locationError();
+                break;
             case "Test3":
-                firstThree();
+                myfunc.locationError();
+                break;
             case "Test4":
-                lastTwo();
+                myfunc.usernameAndPasswordError();
+                break;
             case "Test5":
-                lastTwo();
+                myfunc.usernameAndPasswordError();
+                break;
+            case "Test6":
+                myfunc.usernameAndPasswordError();
+                break;
             case "admin":
+                wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
+                randomSelection();
+                actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
+                wait.until(ExpectedConditions.urlContains("referenceapplication"));
+                break;
         }
     }
 
     @DataProvider
     Object[][] userCredentials() {
         Object[][] loginCredentials = {
-                {"Test1", ""},
-                {"Test2", ""},
+                {"Test1", "admin123"},
+                {"Test2", "admin123"},
                 {"Test3", "Admin123"},
                 {"Test4", "Admin123"},
                 {"Test5", "Admin123"},
-                {"admin", "admin123"},
+                {"Test6", "admin123"},
         };
         return loginCredentials;
     }
 
-    public static void firstThree() {
-        navigationToLoginPage loginPageCredential = new navigationToLoginPage();
-        wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
-        actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
-        Assert.assertTrue(loginPageCredential.loginErrorMessage.getText().contains("You must choose a location!"), "Location seçildi.");
-    }
+    public static void randomSelection() {
+        List<WebElement> locationList = driver.findElements(By.cssSelector("ul[id='sessionLocation'] > li"));
+        int randomNumberForElements = MyFunc.RandomSayiVer(locationList.size());
+        WebElement randomElement = locationList.get(randomNumberForElements);
 
-    public static void lastTwo() {
-        navigationToLoginPage loginPageCredential = new navigationToLoginPage();
-        wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
-        actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
-        Assert.assertTrue(loginPageCredential.loginErrorMessage.getText().contains("You must choose a location!"), "Location seçildi.");
-
-    }
-    public static void successfullLogin(){
-        navigationToLoginPage loginPageCredential = new navigationToLoginPage();
-        actionDriver.moveToElement(loginPageCredential.inpatientWardLocation).click().build().perform();
-        actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
+        wait.until(ExpectedConditions.elementToBeClickable(randomElement));
+        wait.until(ExpectedConditions.visibilityOf(randomElement));
+        actionDriver.moveToElement(randomElement).click().build().perform();
     }
 }
