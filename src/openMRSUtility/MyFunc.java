@@ -59,4 +59,5 @@ public class MyFunc {
         softAssert.assertTrue(loginPageCredential.loginErrorMessageInvalid.getText().contains("Invalid username"), "Password şifre doğru");
         driver.navigate().refresh();
     }
+
 }
