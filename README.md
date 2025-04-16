@@ -7,34 +7,48 @@ Bu projede, Java programlama dili ve Selenium test otomasyon kütüphanesi kulla
 Bu sprint kapsamında, OPEN MRSC platformunun hastane , kullanıcı iletişim formları ve yönlendirme bağlantıları gibi temel işlevleri test edilmiştir. Amaç; kullanıcı deneyimini, güvenliği ve sistem kararlılığını artırmaya yönelik test süreçlerini yürütmektir.
 
 🧩 USER STORY DETAYLARI
-1️⃣ US_401
+1️⃣ US_401 Sisteme Giriş(Login) Hatalarını Kontrol Etmek
 Bir kullanıcı olarak, sisteme yapılan hatalı giriş denemelerinde uyarı mesajı görmek istiyorum. Böylece uygulamanın güvenliğini artırmış olurum.
 
 ![Ekran görüntüsü 2025-04-16 215625](https://github.com/user-attachments/assets/eb2b1f42-5640-4aa0-b9a1-a7fd48ec62a7)
 
-2️⃣ US_402
+2️⃣ US_402Sisteme Giriş (Login) Yapmak
+
 Bir kullanıcı olarak, sisteme giriş yapabilmek istiyorum, böylece uygulamanın özelliklerinden yararlanabilirim.
 ![Ekran görüntüsü 2025-04-16 220033](https://github.com/user-attachments/assets/f9c2eecf-9e06-475f-bd1c-76e2ce578259)
 
 
 
-3️⃣ US_403
-Sepete eklenen demo kitap için ödeme ekranında geçersiz kart numarası girildiğinde “Kart numaranız geçersiz” uyarısının alınması gerekir. 3
+3️⃣ US_403 Sistemden Çıkış (Logout) Yapmak
+Bir kullanıcı olarak, sistemden güvenli bir şekilde çıkış yapabilmek istiyorum, böylece uygulamanın açık kalmamış olduğunda emin olurum.
+![Ekran görüntüsü 2025-04-16 220952](https://github.com/user-attachments/assets/34595597-5ff1-4735-8a99-dc6d2aa4aec1)
 
-4️⃣ US_404
-Tüm bilgiler doğru girildiğinde ödeme işlemi başarılı olmalı ve "Siparişiniz onaylandı. Teşekkür ederiz!" mesajı görüntülenmelidir. 4
+4️⃣ US_404 Hasta Kayıt
+Bir kullanıcı olarak bilgilerini girerek, sisteme hasta kayıt edebilmeliyim. Böylece hasta bilgilerine ihtiyacım olduğunda başka bir uygulamaya ihtiyacım olmaz.
 
-5️⃣ US_405
-Başarılı ödeme sonrası, e-kitabın fiyatı ile sipariş tutarı eşleşmeli ve "İndir" butonu ile dosya indirilebilmelidir. 5
 
-6️⃣ US_406
-Ana sayfada yer alan “Bize Ulaşın” formu aracılığıyla iletişim kurulabilmeli, gerekli alanlar doldurularak form gönderimi test edilmelidir. 6
+5️⃣ US_405 Hesabım (MyAccount)
 
-7️⃣ US_407
-Shopdemo sitesinde "E-Commerce by E-Junkie" bağlantısı üzerinden e-junkie.com ana sayfasına yönlendirme doğrulanmalıdır. 7
+Bir kullanıcı olarak, anasayfada hesap ayarlarıma ulaşabileceğim bir icon veya link olmalıdır. Böylece hesabımla ilgili ayarlara hızlıca ulaşabilirim.
 
-8️⃣ US_408
-Ana sayfada bulunan "Nasıl Çalışır" bağlantısı ile açılan videonun oynatılması ve ardından pencerenin kapanması adımları test edilmelidir. 8
+6️⃣ US_406 Hasta Listesinde Arama
+
+Bir doktor olarak, hastaları listelemek; bu liste içinde bir hastayı aramak (adıyla veya ID si ile) ve onun bilgilerine erişmek istiyorum, böylece onu tedavi edebilirim
+
+
+7️⃣ US_407 Hasta Silme
+Bir doktor olarak, bir hastayı sistemden silmek istiyorum, böylece onun bilgilerinin gizliliğini koruyabilirim.
+
+
+8️⃣ US_408 Hasta Listeleme
+Bir doktor olarak tüm hastaları listelemek istiyorum. Böylece daha rahat bir planlama yapabilirim.
+
+8️⃣ US_409 Hasta Kayıtlarını Birleştirme (Merge)
+Bir doktor olarak daha önce girdiğim hasta kayıtlarından istediğim ikisinibirleştirmek istiyorum. Böylece daha kolay bir reçete yönetimi sağlayabilirim.
+
+8️⃣ US_410 Hasta randevusu alırken yanlış sistem saat dilimi
+Bir kullanıcı olarak, hasta randevusu oluştururken sistem saatinin GMT+0 dışında bir saate ayarlandığında verilen hata mesajını görebilmeliyim. 
+
  
 📚 KULLANILAN TEKNOLOJİLER & KÜTÜPHANELER
 Java JDK 17+
