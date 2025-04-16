@@ -1,10 +1,9 @@
 package openMRSUtility;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,7 +11,11 @@ import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 public class BaseDriver {
    public static Logger LogTutma = LogManager.getLogger();
@@ -48,11 +51,24 @@ public class BaseDriver {
     }
 
     @AfterMethod
-    public void AfterMetod(ITestResult sonuc) // tesin sonuç ve isim bilgisini olduğu değişkeni
+    public void AfterMetod(ITestResult sonuc) throws IOException // tesin sonuç ve isim bilgisini olduğu değişkeni
     {
        LogTutma.info(sonuc.getName() + ",  Metod Bitti" + " Sonuc=" + (sonuc.getStatus() == 1 ? "Passed" : "Failed"));
        LogTutma.warn("WARN : Metod bitti, hata oluşmuş olsa idi bu şekilde eklenebilir.Bir if kontrolü ile");
+
+       if(sonuc.getStatus()==ITestResult.FAILURE){
+           TakesScreenshot ts = (TakesScreenshot) driver;
+
+           File source = ts.getScreenshotAs(OutputType.FILE);
+
+           String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+           String testMethodName = sonuc.getName();
+
+           String dest = System.getProperty("user.dir") + "/screenshots/" + testMethodName + "_" + timeStamp + ".png";
+           File destination = new File(dest);
+
+           FileUtils.copyFile(source, destination);
+           System.out.println("Screenshot saved: " + dest);
+       }
     }
-
-
 }
