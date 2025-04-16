@@ -58,6 +58,7 @@ Maven
 WebDriver Manager
 GitHub
 Jira (Sprint yönetimi için)
+
 👨‍💻 PROJE EKİBİ
 İsim	GitHub Profili
 Merve Kıtır	github.com/mervektr
@@ -67,6 +68,7 @@ Tolga Aktaş	github.com/aktstlga
 Mert Canat	github.com/MertCanat91
 Berk Gültekin	github.com/berkgltkn
 Arif Etli	github.com/ArfEtl
+
 🔁 EK NOTLAR
 Negatif test senaryoları kullanıcı deneyimini geliştirmek ve sistem kararlılığını artırmak amacıyla özellikle ele alınmıştır.
 Testler Chrome, Firefox gibi yaygın tarayıcılar ile yürütülmüştür.
