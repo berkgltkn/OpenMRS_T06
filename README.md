@@ -25,7 +25,8 @@ Bir kullanıcı olarak, sistemden güvenli bir şekilde çıkış yapabilmek ist
 
 4️⃣ US_404 Hasta Kayıt
 Bir kullanıcı olarak bilgilerini girerek, sisteme hasta kayıt edebilmeliyim. Böylece hasta bilgilerine ihtiyacım olduğunda başka bir uygulamaya ihtiyacım olmaz.
-![Ekran görüntüsü 2025-04-16 222116](https://github.com/user-attachments/assets/12dc1cd2-3f58-4020-b109-d1a4177ea0d7)
+![Ekran görüntüsü 2025-04-16 222116](https://github.com/user-attachments/assets/22b8721e-c3c5-436c-b92a-a87d5f4fda98)
+
 
 
 5️⃣ US_405 Hesabım (MyAccount)
