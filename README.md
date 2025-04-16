@@ -32,6 +32,9 @@ Bir kullanıcı olarak bilgilerini girerek, sisteme hasta kayıt edebilmeliyim. 
 5️⃣ US_405 Hesabım (MyAccount)
 
 Bir kullanıcı olarak, anasayfada hesap ayarlarıma ulaşabileceğim bir icon veya link olmalıdır. Böylece hesabımla ilgili ayarlara hızlıca ulaşabilirim.
+![Ekran görüntüsü 2025-04-16 222145](https://github.com/user-attachments/assets/c78a6fa8-9d34-4b62-a4ad-c9075009f0a7)
+
+
 
 6️⃣ US_406 Hasta Listesinde Arama
 
