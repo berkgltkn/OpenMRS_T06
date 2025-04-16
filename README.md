@@ -10,6 +10,7 @@ Bu sprint kapsamında, OPEN MRSC platformunun hastane , kullanıcı iletişim fo
 1️⃣ US_401
 Bir kullanıcı olarak, sisteme yapılan hatalı giriş denemelerinde uyarı mesajı görmek istiyorum. Böylece uygulamanın güvenliğini artırmış olurum.
 (https://github.com/user-attachments/assets/f4ad016c-bcc2-4965-bf1b-2512306270c3)
+![Ekran görüntüsü 2025-04-16 215625](https://github.com/user-attachments/assets/eb2b1f42-5640-4aa0-b9a1-a7fd48ec62a7)
 
 2️⃣ US_402
 Bir kullanıcı olarak, sisteme giriş yapabilmek istiyorum, böylece uygulamanın özelliklerinden yararlanabilirim.
