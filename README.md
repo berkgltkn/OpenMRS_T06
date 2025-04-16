@@ -14,6 +14,8 @@ Bir kullanıcı olarak, sisteme yapılan hatalı giriş denemelerinde uyarı mes
 
 2️⃣ US_402
 Bir kullanıcı olarak, sisteme giriş yapabilmek istiyorum, böylece uygulamanın özelliklerinden yararlanabilirim.
+![Ekran görüntüsü 2025-04-16 220033](https://github.com/user-attachments/assets/f9c2eecf-9e06-475f-bd1c-76e2ce578259)
+
 
 
 3️⃣ US_403
