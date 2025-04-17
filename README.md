@@ -3,10 +3,10 @@
 🎯 OpenMRS TEST PROJESİ
 ---
 📝 PROJE HAKKINDA
-Bu projede, Java programlama dili , Selenium test otomasyon ve TestNG test otomasyon kütüphanesi kullanılarak, OpenMRS Hastane Sitesi üzerinde [OpenMRS Sitesi](https://openmrs.org/tr/)çeşitli kullanıcı senaryolarına dayalı otomasyon testleri gerçekleştirilmiştir.
+Bu projede, Java programlama dili , Selenium test otomasyon ve TestNG test otomasyon kütüphanesi kullanılarak, OpenMRS Hastane Sitesi üzerinde [OpenMRS Sitesi](https://openmrs.org/tr/) çeşitli kullanıcı senaryolarına dayalı otomasyon testleri gerçekleştirilmiştir.
 ---
 📌 PROJE AMACI
-Bu sprint kapsamında, OPEN MRSC platformunun hastane , kullanıcı hasta kayıt  ve yönlendirme bağlantıları gibi temel işlevleri test edilmiştir. Amaç; kullanıcı deneyimini, güvenliği ve sistem kararlılığını artırmaya yönelik test süreçlerini yürütmektir.
+Bu sprint kapsamında, OPEN MRSC platformunun , kullanıcı hasta kayıt, hasta bilgileri ve yönlendirme bağlantıları gibi temel işlevleri test edilmiştir. Amaç; kullanıcı deneyimini, güvenliği ve sistem kararlılığını artırmaya yönelik test süreçlerini yürütmektir.
 ---
 🧩 USER STORY DETAYLARI
 1️⃣ US_401 Sisteme Giriş(Login) Hatalarını Kontrol Etmek
