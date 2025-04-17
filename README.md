@@ -3,7 +3,9 @@
 📝 PROJE HAKKINDA
 Bu projede, Java programlama dili ve Selenium test otomasyon kütüphanesi kullanılarak, OPEN MRSC Hastane Sitesi üzerinde çeşitli kullanıcı senaryolarına dayalı otomasyon testleri gerçekleştirilmiştir.
 
-📌 PROJE AMACI
+---
+
+###📌 PROJE AMACI
 Bu sprint kapsamında, OPEN MRSC platformunun hastane , kullanıcı iletişim formları ve yönlendirme bağlantıları gibi temel işlevleri test edilmiştir. Amaç; kullanıcı deneyimini, güvenliği ve sistem kararlılığını artırmaya yönelik test süreçlerini yürütmektir.
 
 🧩 USER STORY DETAYLARI
