@@ -35,5 +35,9 @@ public void pattientlist() {
             By.id("coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension")));
     findPatientButton.click();
 
+    WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("patient-search")));
+    searchBox.clear();
+    searchBox.sendKeys("1000A8");
+
 }
 }
