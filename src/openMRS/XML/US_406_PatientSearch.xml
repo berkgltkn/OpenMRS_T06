@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="US_406 Patient Search Suite">
+    <test verbose="2" preserve-order="true" name="US_406_PatientSearchTest">
+        <classes>
+            <class name="US_406">
+                <methods>
+                    <include name="testValidAndInvalidPatientSearch"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
