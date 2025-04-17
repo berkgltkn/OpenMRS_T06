@@ -1,4 +1,4 @@
-🧪 TECHNO STUDY Agile Software Testing Project - 4
+🧪 TECHNO STUDY Software Testing Project - 4
 ---
 🎯 OpenMRS TEST PROJESİ
 ---
