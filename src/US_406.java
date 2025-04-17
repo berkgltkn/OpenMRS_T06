@@ -1,5 +1,4 @@
 import openMRSUtility.BaseDriver;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 
@@ -37,10 +37,10 @@ public void pattientlist() {
 
     WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("patient-search")));
     searchBox.clear();
-    searchBox.sendKeys("1000A8");
+    searchBox.sendKeys("100HVL");
 
     WebElement patientRow = wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.xpath("//tr/td[contains(text(),'1000A8')]/following-sibling::td[contains(text(),'Thomas López')]")));
+            By.xpath("//tr/td[contains(text(),'100HVL')]/following-sibling::td[contains(text(),'tes ds')]")));
     patientRow.click();
 
     WebElement homeButton = wait.until(ExpectedConditions.elementToBeClickable(
