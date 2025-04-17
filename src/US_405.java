@@ -49,5 +49,5 @@ public void MyAccountTest(){
         WebElement myLangueges=driver.findElement(By.xpath("//a[@href='/openmrs/adminui/myaccount/changeDefaults.page']"));
         wait.until(ExpectedConditions.elementToBeClickable(myLangueges));
         myLangueges.click();
-}
+ }
 }
