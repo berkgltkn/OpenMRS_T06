@@ -50,26 +50,26 @@ Bir kullanıcı olarak, hasta randevusu oluştururken sistem saatinin GMT+0 dı�
 ![US_410TimeZone](https://github.com/user-attachments/assets/217e9077-0a35-4c14-bffe-586edfeb80e4)
 ---
  
-📚 KULLANILAN TEKNOLOJİLER & KÜTÜPHANELER
----
-Java JDK 17+
-Selenium WebDriver - v4.29.0
-TestNG 
-Maven
-WebDriver Manager
-GitHub
-Jira (Sprint yönetimi için)
+### 📚 KULLANILAN TEKNOLOJİLER & KÜTÜPHANELER  
+- **Java JDK 17+**  
+- **Selenium WebDriver - v4.29.0**  
+- **TestNG** (isteğe bağlı yapılandırma)  
+- **Maven**  
+- **WebDriver Manager**  
+- **GitHub**  
+- **Jira** (Sprint yönetimi için)  
 ---
 👨‍💻 PROJE EKİBİ
 ---
-İsim	GitHub Profili
-Merve Kıtır	github.com/mervektr
-Mert Saraç	github.com/meertsarac
-Barış Sancar	github.com/brssncr
-Tolga Aktaş	github.com/aktstlga
-Mert Canat	github.com/MertCanat91
-Berk Gültekin	github.com/berkgltkn
-Arif Etli	github.com/ArfEtl
+| İsim           | GitHub Profili                             |
+|----------------|---------------------------------------------|
+| Merve Kıtır     | [github.com/mervektr](https://github.com/mervektr)         |
+| Mert Saraç      | [github.com/meertsarac](https://github.com/meertsarac)     |
+| Barış Sancar    | [github.com/brssncr](https://github.com/brssncr)           |
+| Tolga Aktaş     | [github.com/aktstlga](https://github.com/aktstlga)         |
+| Mert Canat      | [github.com/MertCanat91](https://github.com/MertCanat91)   |
+| Berk Gültekin   | [github.com/berkgltkn](https://github.com/berkgltkn)       |
+| Arif Etli       | [github.com/ArfEtl](https://github.com/ArfEtl)             |
 ---
 🔁 EK NOTLAR
 ---
