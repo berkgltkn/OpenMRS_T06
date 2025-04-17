@@ -75,4 +75,4 @@ Bir kullanıcı olarak, hasta randevusu oluştururken sistem saatinin GMT+0 dı�
 - Negatif test senaryoları kullanıcı deneyimini geliştirmek ve sistem kararlılığını artırmak amacıyla özellikle ele alınmıştır.  
 - Testler Chrome, Firefox gibi yaygın tarayıcılar ile yürütülmüştür.  
 - Testlerde manuel doğrulama ve otomasyon birlikte kullanılmış, bazı senaryolar için ekran kayıtları (GIF) hazırlanmıştır.  
-- Sprint boyunca iletişim için Discord, Slack veya Microsoft Teams gibi platformlar tercih edilmiştir.  
+- Sprint boyunca iletişim için Rocket Chat ve Microsoft Teams gibi platformlar tercih edilmiştir.  
