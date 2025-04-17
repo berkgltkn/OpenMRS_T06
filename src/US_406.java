@@ -39,5 +39,9 @@ public void pattientlist() {
     searchBox.clear();
     searchBox.sendKeys("1000A8");
 
+    WebElement patientRow = wait.until(ExpectedConditions.visibilityOfElementLocated(
+            By.xpath("//tr/td[contains(text(),'1000A8')]/following-sibling::td[contains(text(),'Thomas López')]")));
+    patientRow.click();
+
 }
 }
