@@ -71,9 +71,8 @@ Bir kullanıcı olarak, hasta randevusu oluştururken sistem saatinin GMT+0 dı�
 | Berk Gültekin   | [github.com/berkgltkn](https://github.com/berkgltkn)       |
 | Arif Etli       | [github.com/ArfEtl](https://github.com/ArfEtl)             |
 ---
-🔁 EK NOTLAR
----
-Negatif test senaryoları kullanıcı deneyimini geliştirmek ve sistem kararlılığını artırmak amacıyla özellikle ele alınmıştır.
-Testler Chrome, Firefox gibi yaygın tarayıcılar ile yürütülmüştür.
-Testlerde manuel doğrulama ve otomasyon birlikte kullanılmış, bazı senaryolar için ekran kayıtları (GIF) hazırlanmıştır.
-Sprint boyunca iletişim için Discord, Slack veya Microsoft Teams gibi platformlar tercih edilmiştir.
+### 🔁 EK NOTLAR  
+- Negatif test senaryoları kullanıcı deneyimini geliştirmek ve sistem kararlılığını artırmak amacıyla özellikle ele alınmıştır.  
+- Testler Chrome, Firefox gibi yaygın tarayıcılar ile yürütülmüştür.  
+- Testlerde manuel doğrulama ve otomasyon birlikte kullanılmış, bazı senaryolar için ekran kayıtları (GIF) hazırlanmıştır.  
+- Sprint boyunca iletişim için Discord, Slack veya Microsoft Teams gibi platformlar tercih edilmiştir.  
