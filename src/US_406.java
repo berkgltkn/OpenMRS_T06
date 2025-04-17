@@ -18,5 +18,18 @@ public void pattientlist() {
     driver.manage().window().maximize();
 
     driver.get("https://o2.openmrs.org/openmrs/login.htm");
+
+    WebElement username = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+    username.sendKeys("admin");
+
+    WebElement password = driver.findElement(By.id("password"));
+    password.sendKeys("Admin123");
+
+    WebElement location = wait.until(ExpectedConditions.elementToBeClickable(By.id("Inpatient Ward")));
+    location.click();
+
+    WebElement loginButton = driver.findElement(By.id("loginButton"));
+    loginButton.click();
+
 }
 }
