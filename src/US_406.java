@@ -31,5 +31,9 @@ public void pattientlist() {
     WebElement loginButton = driver.findElement(By.id("loginButton"));
     loginButton.click();
 
+    WebElement findPatientButton = wait.until(ExpectedConditions.elementToBeClickable(
+            By.id("coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension")));
+    findPatientButton.click();
+
 }
 }
