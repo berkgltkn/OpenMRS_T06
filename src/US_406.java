@@ -43,5 +43,9 @@ public void pattientlist() {
             By.xpath("//tr/td[contains(text(),'1000A8')]/following-sibling::td[contains(text(),'Thomas López')]")));
     patientRow.click();
 
+    WebElement homeButton = wait.until(ExpectedConditions.elementToBeClickable(
+            By.cssSelector("a[href='/openmrs/index.htm']")));
+    homeButton.click();
+
 }
 }
