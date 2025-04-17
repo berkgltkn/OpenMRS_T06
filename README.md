@@ -9,7 +9,9 @@ Bu projede, Java programlama dili , Selenium test otomasyon ve TestNG test otoma
 Bu sprint kapsamında, OPEN MRSC platformunun , kullanıcı hasta kayıt, hasta bilgileri ve yönlendirme bağlantıları gibi temel işlevleri test edilmiştir. Amaç; kullanıcı deneyimini, güvenliği ve sistem kararlılığını artırmaya yönelik test süreçlerini yürütmektir.
 ---
 🧩 USER STORY DETAYLARI
+---
 1️⃣ US_401 Sisteme Giriş(Login) Hatalarını Kontrol Etmek
+---
 Bir kullanıcı olarak, sisteme yapılan hatalı giriş denemelerinde uyarı mesajı görmek istiyorum. Böylece uygulamanın güvenliğini artırmış olurum.
 ![Ekran görüntüsü 2025-04-16 215625](https://github.com/user-attachments/assets/eb2b1f42-5640-4aa0-b9a1-a7fd48ec62a7)
 ---
