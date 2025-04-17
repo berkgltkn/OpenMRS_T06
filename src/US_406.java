@@ -60,5 +60,6 @@ public void pattientlist() {
 
     Assert.assertEquals("No matching records found", noResultMessage.getText());
 
+    driver.quit();
 }
 }
