@@ -47,5 +47,9 @@ public void pattientlist() {
             By.cssSelector("a[href='/openmrs/index.htm']")));
     homeButton.click();
 
+    WebElement findPatientButton2 = wait.until(ExpectedConditions.elementToBeClickable(
+            By.id("coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension")));
+    findPatientButton2.click();
+
 }
 }
