@@ -55,5 +55,10 @@ public void pattientlist() {
     searchBox2.clear();
     searchBox2.sendKeys("Emma Hostert");
 
+    WebElement noResultMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
+            By.cssSelector("td.dataTables_empty")));
+
+    Assert.assertEquals("No matching records found", noResultMessage.getText());
+
 }
 }
