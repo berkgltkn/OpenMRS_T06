@@ -51,5 +51,9 @@ public void pattientlist() {
             By.id("coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension")));
     findPatientButton2.click();
 
+    WebElement searchBox2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("patient-search")));
+    searchBox2.clear();
+    searchBox2.sendKeys("Emma Hostert");
+
 }
 }
