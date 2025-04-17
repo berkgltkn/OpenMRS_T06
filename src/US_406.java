@@ -1,65 +1,56 @@
 import openMRSUtility.BaseDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
 public class US_406 extends BaseDriver {
-@Test
-public void pattientlist() {
-    WebDriver driver = new ChromeDriver();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    driver.manage().window().maximize();
 
-    driver.get("https://o2.openmrs.org/openmrs/login.htm");
+    @Test
+    public void patientSearch() {
 
-    WebElement username = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
-    username.sendKeys("admin");
+        driver.get("https://demo.openmrs.org/openmrs/login.htm");
 
-    WebElement password = driver.findElement(By.id("password"));
-    password.sendKeys("Admin123");
+        WebElement username = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+        username.sendKeys("admin");
 
-    WebElement location = wait.until(ExpectedConditions.elementToBeClickable(By.id("Inpatient Ward")));
-    location.click();
+        WebElement password = driver.findElement(By.id("password"));
+        password.sendKeys("Admin123");
 
-    WebElement loginButton = driver.findElement(By.id("loginButton"));
-    loginButton.click();
+        WebElement location = wait.until(ExpectedConditions.elementToBeClickable(By.id("Inpatient Ward")));
+        location.click();
 
-    WebElement findPatientButton = wait.until(ExpectedConditions.elementToBeClickable(
-            By.id("coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension")));
-    findPatientButton.click();
+        WebElement loginButton = driver.findElement(By.id("loginButton"));
+        loginButton.click();
 
-    WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("patient-search")));
-    searchBox.clear();
-    searchBox.sendKeys("100HVL");
+        WebElement findPatientButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.id("coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension")));
+        findPatientButton.click();
 
-    WebElement patientRow = wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.xpath("//tr/td[contains(text(),'100HVL')]/following-sibling::td[contains(text(),'tes ds')]")));
-    patientRow.click();
+        WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("patient-search")));
+        searchBox.clear();
+        searchBox.sendKeys("100K18");
 
-    WebElement homeButton = wait.until(ExpectedConditions.elementToBeClickable(
-            By.cssSelector("a[href='/openmrs/index.htm']")));
-    homeButton.click();
+        WebElement patientRow = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//tbody//tr/td[contains(text(),'100K18')]/span[contains(text(),'Recent')]")));
+        patientRow.click();
 
-    WebElement findPatientButton2 = wait.until(ExpectedConditions.elementToBeClickable(
-            By.id("coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension")));
-    findPatientButton2.click();
+        WebElement homeButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.cssSelector("a[href='/openmrs/index.htm']")));
+        homeButton.click();
 
-    WebElement searchBox2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("patient-search")));
-    searchBox2.clear();
-    searchBox2.sendKeys("Emma Hostert");
+        WebElement findPatientButton2 = wait.until(ExpectedConditions.elementToBeClickable(
+                By.id("coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension")));
+        findPatientButton2.click();
 
-    WebElement noResultMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
-            By.cssSelector("td.dataTables_empty")));
+        WebElement searchBox2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("patient-search")));
+        searchBox2.clear();
+        searchBox2.sendKeys("Emma Hostert");
 
-    Assert.assertEquals("No matching records found", noResultMessage.getText());
+        WebElement noResultMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.cssSelector("td.dataTables_empty")));
 
-    driver.quit();
-}
+        Assert.assertEquals("No matching records found", noResultMessage.getText());
+    }
 }
