@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class US_409 extends BaseDriver {
@@ -66,14 +68,18 @@ public class US_409 extends BaseDriver {
 
         actionDriver.scrollToElement(loginCredentials.errorMesseageForMerge).build().perform();
         Assert.assertTrue(loginCredentials.errorMesseageForMerge.getText().contains("Merging cannot be"), "Uyarı mesajı doğru verilemedi.");
-        loginCredentials.secondPatientForChoose.click(); //Buraya clickletmek için yeni bir şey bul
+        loginCredentials.secondPatientForChoose.click();
 
         wait.until(ExpectedConditions.elementToBeClickable(By.id("confirm-button")));
         actionDriver.scrollToElement(loginCredentials.confirmButton).moveToElement(loginCredentials.confirmButton).click().build().perform();
 
         wait.until(ExpectedConditions.urlContains("patientdashboard"));
-        Assert.assertTrue(loginCredentials.firstPatientID.getText().contains(cleanFirst), "İlk id uyuşmadı");
-        Assert.assertTrue(loginCredentials.secondPatientID.getText().contains(cleanSecond), "İkinci id uyuşmadı"); //Burada da iki id'yi bulmak için yeni bi yöntem bul
-        //list olabilir
+
+        List<String> patientIds = Arrays.asList(cleanFirst, cleanSecond);
+        List<WebElement> patientElements = Arrays.asList(loginCredentials.firstPatientID, loginCredentials.secondPatientID);
+
+        for (int i = 0; i < patientElements.size(); i++) {
+            Assert.assertTrue(patientElements.get(i).getText().contains(patientIds.get(i)), "ID uyuşmadı: " + patientIds.get(i));
+        }
     }
 }
