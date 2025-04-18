@@ -9,9 +9,12 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class US_401 extends BaseDriver {
-    @Test(priority = 1)
-    public void verifyNavigation() {
+    @Test(dataProvider = "userCredentials", priority = 1, dependsOnMethods = {"verifyNavigation"})
+    public void verifyNavigation(String username, String password) {
         Login_POM loginPageCredential = new Login_POM();
+        SoftAssert softAssert = new SoftAssert();
+        MyFunc myfunc = new MyFunc();
+
         driver.get("https://openmrs.org/en/");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[class='zak-button']")));
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[class='zak-button']")));
@@ -26,13 +29,6 @@ public class US_401 extends BaseDriver {
 
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginIcon));
         Assert.assertTrue(loginPageCredential.loginText.getText().toLowerCase().equalsIgnoreCase("logın"), "Login'e geçilemedi.");
-    }
-
-    @Test(dataProvider = "userCredentials", priority = 2, dependsOnMethods = {"verifyNavigation"})
-    public void loginWithError(String username, String password) {
-        SoftAssert softAssert = new SoftAssert();
-        Login_POM loginPageCredential = new Login_POM();
-        MyFunc myfunc = new MyFunc();
 
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginUsername));
         wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginUsername));
@@ -64,7 +60,7 @@ public class US_401 extends BaseDriver {
                 myfunc.randomSelection();
                 actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
                 wait.until(ExpectedConditions.urlContains("referenceapplication"));
-                Assert.assertTrue(driver.getCurrentUrl().contains("referenceapplication"),"Başarıyla geçilemedi.");
+                Assert.assertTrue(driver.getCurrentUrl().contains("referenceapplication"), "Başarıyla geçilemedi.");
                 softAssert.assertAll();
                 break;
         }
