@@ -4,11 +4,13 @@
         <classes>
             <class name="openMRS.US_403"/>
         </classes>
-    </test>
 
-    <test name="test2">
-        <classes>
-            <class name="openMRS.US_403"/>
-        </classes>
+        <groups>
+            <run>
+                <include name="Smoke"/>
+                <include name="Logout"/>
+            </run>
+        </groups>
+
     </test>
 </suite>

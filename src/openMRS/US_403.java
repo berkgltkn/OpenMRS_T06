@@ -3,6 +3,7 @@ package openMRS;
 import openMRSUtility.BaseDriver;
 import openMRSUtility.MyFunc;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -16,6 +17,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class US_403 extends BaseDriver {
+    WebDriver driver;
     WebDriverWait wait;
 
     @BeforeClass
@@ -25,14 +27,15 @@ public class US_403 extends BaseDriver {
         actionDriver = new Actions(driver);
         driver.manage().window().maximize(); // Ekranı max yapıyor.
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         LogTutma.info("Başlangıç değişkenleri driver,wait,log tanımlandı ve başlatıldı");
+
+        driver.get("https://demo.openmrs.org/openmrs/login.htm");
     }
 
-    @Test(groups = {"smoke", "logout"})
-    public void LogoutSystem() {
+    @Test(groups = {"Smoke"})
+    public void LoginSystem() {
         driver.get("https://demo.openmrs.org/openmrs/login.htm");
 
         WebElement username = driver.findElement(By.id("username"));
@@ -50,6 +53,10 @@ public class US_403 extends BaseDriver {
         WebElement loginButton = driver.findElement(By.id("loginButton"));
         wait.until(ExpectedConditions.elementToBeClickable(loginButton));
         loginButton.click();
+    }
+
+    @Test(groups = {"Logout"})
+    public void LogoutSystem() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
