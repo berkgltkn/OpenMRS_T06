@@ -1,6 +1,5 @@
 package openMRSUtility;
 
-import Login_POM;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,7 +10,7 @@ import java.util.List;
 import static openMRSUtility.BaseDriver.driver;
 import static openMRSUtility.BaseDriver.wait;
 import static openMRSUtility.WebTool.actionDriver;
-import static org.testng.Assert.assertTrue;
+
 
 public class MyFunc {
     Login_POM loginPageCredential = new Login_POM();
