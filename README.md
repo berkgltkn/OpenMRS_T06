@@ -64,7 +64,7 @@ Bir kullanıcı olarak, hasta randevusu oluştururken sistem saatinin GMT+0 dı�
 ### 📚 KULLANILAN TEKNOLOJİLER & KÜTÜPHANELER  
 - **Java JDK 17+**  
 - **Selenium WebDriver - v4.29.0**  
-- **TestNG** (isteğe bağlı yapılandırma)  
+- **TestNG**   
 - **Maven**  
 - **WebDriver Manager**  
 - **GitHub**  
