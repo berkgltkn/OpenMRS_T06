@@ -41,17 +41,17 @@ public class US_408 extends BaseDriver {
         String[] parts=infoText.split(" ");
         int totalPages =Integer.parseInt(parts[5]);
 
-        By pageLinksLocator = By.cssSelector("#patient-search-results-table_paginate span a");
-        List<WebElement> pageLinks = driver.findElements(pageLinksLocator);
+        WebElement pageLinksLocator = driver.findElement(By.cssSelector("#patient-search-results-table_paginate span a"));
+        List<WebElement> pageLinks = driver.findElements((By) pageLinksLocator);
         int pagesCount = pageLinks.size();
 
-        By rowsLocator = By.cssSelector("#patient-search-results-table tbody tr");
+        WebElement patientRows = driver.findElement(By.cssSelector("#patient-search-results-table tbody tr"));
         int patientsTotal = 0;
 
         for (int i = 0; i < pagesCount; i++) {
-            List<WebElement> links = driver.findElements(pageLinksLocator);
+            List<WebElement> links = driver.findElements((By) pageLinksLocator);
             links.get(i).click();
-            List<WebElement> patientsOnSite = driver.findElements(rowsLocator);
+            List<WebElement> patientsOnSite = driver.findElements((By) patientRows);
             patientsTotal += patientsOnSite.size();
         }
         Assert.assertTrue(patientsTotal == totalPages, " Doğru oranda sayı bulanamadı");
