@@ -1,18 +1,13 @@
-package openMRS.navigationToLoginPage;
-
 import openMRSUtility.BaseDriver;
 import openMRSUtility.MyFunc;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.util.List;
-
-public class US_401 extends BaseDriver {
+public class US_402 extends BaseDriver {
     @Test(priority = 1)
     public void verifyNavigation() {
         Login_POM loginPageCredential = new Login_POM();
@@ -36,7 +31,7 @@ public class US_401 extends BaseDriver {
     public void loginWithError(String username, String password) {
         SoftAssert softAssert = new SoftAssert();
         Login_POM loginPageCredential = new Login_POM();
-        MyFunc myfunc = new MyFunc();
+        MyFunc myFunc = new MyFunc();
 
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginUsername));
         wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginUsername));
@@ -46,26 +41,26 @@ public class US_401 extends BaseDriver {
 
         switch (username) {
             case "Test1":
-                myfunc.locationError();
+                myFunc.locationError();
                 break;
             case "Test2":
-                myfunc.locationError();
+                myFunc.locationError();
                 break;
             case "Test3":
-                myfunc.locationError();
+                myFunc.locationError();
                 break;
             case "Test4":
-                myfunc.usernameAndPasswordError();
+                myFunc.usernameAndPasswordError();
                 break;
             case "Test5":
-                myfunc.usernameAndPasswordError();
+                myFunc.usernameAndPasswordError();
                 break;
             case "Test6":
-                myfunc.usernameAndPasswordError();
+                myFunc.usernameAndPasswordError();
                 break;
             case "admin":
                 wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
-                myfunc.randomSelection();
+                myFunc.randomSelection();
                 actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
                 wait.until(ExpectedConditions.urlContains("referenceapplication"));
                 Assert.assertTrue(driver.getCurrentUrl().contains("referenceapplication"),"Başarıyla geçilemedi.");
@@ -83,6 +78,7 @@ public class US_401 extends BaseDriver {
                 {"Test4", "Admin123"},
                 {"Test5", "Admin123"},
                 {"Test6", "admin123"},
+                {"admin", "Admin123"},
         };
         return loginCredentials;
     }

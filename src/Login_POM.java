@@ -1,5 +1,3 @@
-package openMRS.navigationToLoginPage;
-
 import openMRSUtility.BaseDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

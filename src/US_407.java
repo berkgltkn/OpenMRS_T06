@@ -1,6 +1,4 @@
 
-import openMRS.navigationToLoginPage.Login_POM;
-import openMRS.navigationToLoginPage.US_402;
 import openMRSUtility.BaseDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

@@ -2,7 +2,7 @@
 <suite name="mySuit">
     <test name="test1">
         <classes>
-            <class name="openMRS.US_403"/>
+            <class name="US_403"/>
         </classes>
 
         <groups>

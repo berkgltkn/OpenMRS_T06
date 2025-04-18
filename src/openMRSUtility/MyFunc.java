@@ -1,10 +1,9 @@
 package openMRSUtility;
 
-import openMRS.navigationToLoginPage.Login_POM;
+import Login_POM;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
