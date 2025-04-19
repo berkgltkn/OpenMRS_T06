@@ -3,6 +3,7 @@ import openMRSUtility.patientRegistration_POM;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 public class US_404 extends BaseDriver {
     @Test
@@ -18,6 +19,9 @@ public class US_404 extends BaseDriver {
         wait.until(ExpectedConditions.visibilityOf(register.demoButton));
         wait.until(ExpectedConditions.elementToBeClickable(register.demoButton));
         actionDriver.scrollToElement(register.demoButton).moveToElement(register.demoButton).click().build().perform();
+
+        wait.until(ExpectedConditions.visibilityOf(register.loginIcon));
+        Assert.assertTrue(register.loginText.getText().toLowerCase().equalsIgnoreCase("logın"), "Login'e geçilemedi.");
 
     }
 }
