@@ -12,7 +12,6 @@ public class US_401 extends BaseDriverParameter {
     @Test(priority = 1)
     @Parameters("BrowserType")
     public void verifyNavigation() {
-        Login_POM loginPageCredential = new Login_POM();
 
         driver.get("https://openmrs.org/en/");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[class='zak-button']")));
@@ -32,7 +31,6 @@ public class US_401 extends BaseDriverParameter {
 
     @Test(dataProvider = "userCredentials", priority = 2)
     public void loginToSiteWithError(String username, String password, boolean status){
-        Login_POM loginPageCredential = new Login_POM();
         ReusableMethods reusableMethods = new ReusableMethods();
 
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginUsername));

@@ -1,5 +1,6 @@
 package openMRSUtility;
 
+import Pages.Login_POM;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,6 +24,8 @@ public class BaseDriverParameter {
     public static WebDriver driver;
     public static WebDriverWait wait;
     public static Actions action;
+    public static Login_POM loginPageCredential;
+    public static ReusableMethods reusableMethods;
 
     @BeforeClass
     @Parameters("BrowserType")
@@ -45,6 +48,8 @@ public class BaseDriverParameter {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         action= new Actions(driver);
+        loginPageCredential = new Login_POM();
+        reusableMethods= new ReusableMethods();
         LogTutma.info("Başlangıç değişkenleri driver,wait,log tanımlandı ve başlatıldı");
     }
 
