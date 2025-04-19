@@ -23,5 +23,10 @@ public class US_404 extends BaseDriver {
         wait.until(ExpectedConditions.visibilityOf(register.loginIcon));
         Assert.assertTrue(register.loginText.getText().toLowerCase().equalsIgnoreCase("logın"), "Login'e geçilemedi.");
 
+        register.loginUsername.sendKeys("admin");
+        register.loginPassword.sendKeys("Admin123");
+        register.pharmacy.click();
+        register.loginButton.click();
+
     }
 }
