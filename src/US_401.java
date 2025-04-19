@@ -1,6 +1,5 @@
 import openMRSUtility.BaseDriverParameter;
-import openMRSUtility.Login_POM;
-import openMRSUtility.MyFunc;
+import Pages.Login_POM;
 import openMRSUtility.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 public class US_401 extends BaseDriverParameter {
     @Test(priority = 1)

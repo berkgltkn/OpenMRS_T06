@@ -1,6 +1,6 @@
 import openMRSUtility.BaseDriverParameter;
 import openMRSUtility.MyFunc;
-import openMRSUtility.patientRegistration_POM;
+import Pages.patientRegistration_POM;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;

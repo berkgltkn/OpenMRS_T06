@@ -1,5 +1,6 @@
 package openMRSUtility;
 
+import Pages.Login_POM;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -10,7 +11,6 @@ import java.util.List;
 
 import static openMRSUtility.BaseDriverParameter.driver;
 import static openMRSUtility.BaseDriverParameter.wait;
-import static openMRSUtility.WebTool.actionDriver;
 
 public class ReusableMethods {
     Login_POM loginPageCredential = new Login_POM();

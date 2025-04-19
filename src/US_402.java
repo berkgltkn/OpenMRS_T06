@@ -1,6 +1,5 @@
 import openMRSUtility.BaseDriverParameter;
-import openMRSUtility.Login_POM;
-import openMRSUtility.MyFunc;
+import Pages.Login_POM;
 import openMRSUtility.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
