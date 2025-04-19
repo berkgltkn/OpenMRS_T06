@@ -65,6 +65,8 @@ public class US_404 extends BaseDriver {
 
         MyFunc.wait(10);
 
+        register.confirm.click();
+
 
     }
 }
