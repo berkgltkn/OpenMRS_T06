@@ -1,4 +1,5 @@
 import openMRSUtility.BaseDriver;
+import openMRSUtility.MyFunc;
 import openMRSUtility.patientRegistration_POM;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -27,6 +28,8 @@ public class US_404 extends BaseDriver {
         register.loginPassword.sendKeys("Admin123");
         register.pharmacy.click();
         register.loginButton.click();
+
+        MyFunc.wait(10);
 
     }
 }
