@@ -14,5 +14,10 @@ public class US_404 extends BaseDriver {
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[class='zak-button']")));
         register.demoLink.click();
 
+        actionDriver.scrollToElement(register.demoButton).click().build().perform();
+        wait.until(ExpectedConditions.visibilityOf(register.demoButton));
+        wait.until(ExpectedConditions.elementToBeClickable(register.demoButton));
+        actionDriver.scrollToElement(register.demoButton).moveToElement(register.demoButton).click().build().perform();
+
     }
 }
