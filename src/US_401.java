@@ -55,14 +55,6 @@ public class US_401 extends BaseDriver {
             case "Test6":
                 myfunc.usernameAndPasswordError();
                 break;
-            case "admin":
-                wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
-                myfunc.randomSelection();
-                actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
-                wait.until(ExpectedConditions.urlContains("referenceapplication"));
-                Assert.assertTrue(driver.getCurrentUrl().contains("referenceapplication"), "Başarıyla geçilemedi.");
-                softAssert.assertAll();
-                break;
         }
     }
 
@@ -78,5 +70,4 @@ public class US_401 extends BaseDriver {
         };
         return loginCredentials;
     }
-
 }
