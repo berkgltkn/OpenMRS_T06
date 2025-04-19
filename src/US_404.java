@@ -1,2 +1,4 @@
-public class US_404 {
+import openMRSUtility.BaseDriver;
+
+public class US_404 extends BaseDriver {
 }
