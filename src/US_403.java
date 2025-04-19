@@ -10,29 +10,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
 public class US_403 extends BaseDriverParameter {
-    WebDriver driver;
-    WebDriverWait wait;
-
-    @BeforeClass
-    public void Setup() {
-        LogTutma.info("Log Tutma işlemi başladı");
-        driver = new ChromeDriver();
-        action = new Actions(driver);
-        driver.manage().window().maximize(); // Ekranı max yapıyor.
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        LogTutma.info("Başlangıç değişkenleri driver,wait,log tanımlandı ve başlatıldı");
-
-        driver.get("https://demo.openmrs.org/openmrs/login.htm");
-    }
 
     @Test(groups = {"Smoke"})
+    @Parameters("BrowserType")
     public void LoginSystem() {
         driver.get("https://demo.openmrs.org/openmrs/login.htm");
 
@@ -55,7 +41,6 @@ public class US_403 extends BaseDriverParameter {
 
     @Test(groups = {"Logout"})
     public void LogoutSystem() {
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         WebElement logoutButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='nav-item logout']/a")));
@@ -69,13 +54,5 @@ public class US_403 extends BaseDriverParameter {
             System.out.println("Login sayfası başlığı beklenenle uyuşmuyor. Gerçek başlık: " + actualTitle);
         }
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("username")));
-    }
-
-    @AfterClass
-    public void TearDown() {
-        MyFunc.wait(3);
-        driver.quit();
-        LogTutma.info("Driver kapatıldı");
-        LogTutma.warn("Driver kapatılamadı.");
     }
 }

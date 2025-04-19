@@ -1,6 +1,7 @@
 import openMRSUtility.BaseDriverParameter;
 import openMRSUtility.MyFunc;
 import openMRSUtility.patientRegistration_POM;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,6 +9,7 @@ import org.testng.Assert;
 
 public class US_404 extends BaseDriverParameter {
     @Test
+    @Parameters("BrowserType")
     public void patientRegistration() {
         patientRegistration_POM register = new patientRegistration_POM();
 

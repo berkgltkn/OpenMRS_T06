@@ -1,6 +1,7 @@
 import openMRSUtility.BaseDriverParameter;
 import openMRSUtility.Login_POM;
 import openMRSUtility.MyFunc;
+import openMRSUtility.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -34,7 +35,7 @@ public class US_401 extends BaseDriverParameter {
     @Test(dataProvider = "userCredentials", priority = 2)
     public void loginToSiteWithError(String username, String password, boolean status){
         Login_POM loginPageCredential = new Login_POM();
-        MyFunc myfunc = new MyFunc();
+        ReusableMethods reusableMethods = new ReusableMethods();
 
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginUsername));
         wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginUsername));
@@ -45,22 +46,22 @@ public class US_401 extends BaseDriverParameter {
         switch(username)
     {
         case "Test1":
-            myfunc.locationError();
+            reusableMethods.locationError();
             break;
         case "Test2":
-            myfunc.locationError();
+            reusableMethods.locationError();
             break;
         case "Test3":
-            myfunc.locationError();
+            reusableMethods.locationError();
             break;
         case "Test4":
-            myfunc.usernameAndPasswordError();
+            reusableMethods.usernameAndPasswordError();
             break;
         case "Test5":
-            myfunc.usernameAndPasswordError();
+            reusableMethods.usernameAndPasswordError();
             break;
         case "Test6":
-            myfunc.usernameAndPasswordError();
+            reusableMethods.usernameAndPasswordError();
             break;
     }
 }

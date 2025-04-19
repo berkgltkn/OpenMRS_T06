@@ -1,6 +1,7 @@
 import openMRSUtility.BaseDriverParameter;
 import openMRSUtility.Login_POM;
 import openMRSUtility.MyFunc;
+import openMRSUtility.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -35,7 +36,7 @@ public class US_402 extends BaseDriverParameter {
     public void loginToSiteWithError(String username, String password) {
         Login_POM loginPageCredential = new Login_POM();
         SoftAssert softAssert = new SoftAssert();
-        MyFunc myfunc = new MyFunc();
+        ReusableMethods reusableMethods= new ReusableMethods();
 
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginUsername));
         wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginUsername));
@@ -45,26 +46,26 @@ public class US_402 extends BaseDriverParameter {
 
         switch (username) {
             case "Test1":
-                myfunc.locationError();
+                reusableMethods.locationError();
                 break;
             case "Test2":
-                myfunc.locationError();
+                reusableMethods.locationError();
                 break;
             case "Test3":
-                myfunc.locationError();
+                reusableMethods.locationError();
                 break;
             case "Test4":
-                myfunc.usernameAndPasswordError();
+                reusableMethods.usernameAndPasswordError();
                 break;
             case "Test5":
-                myfunc.usernameAndPasswordError();
+                reusableMethods.usernameAndPasswordError();
                 break;
             case "Test6":
-                myfunc.usernameAndPasswordError();
+                reusableMethods.usernameAndPasswordError();
                 break;
             case "admin":
                 wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
-                myfunc.randomSelection();
+                reusableMethods.randomSelection();
                 action.moveToElement(loginPageCredential.loginButton).click().build().perform();
                 wait.until(ExpectedConditions.urlContains("referenceapplication"));
                 Assert.assertTrue(driver.getCurrentUrl().contains("referenceapplication"), "Başarıyla geçilemedi.");
@@ -76,12 +77,12 @@ public class US_402 extends BaseDriverParameter {
     @DataProvider
     Object[][] userCredentials() {
         Object[][] loginCredentials = {
-                {"Test1", "admin123"},
-                {"Test2", "admin123"},
-                {"Test3", "Admin123"},
-                {"Test4", "Admin123"},
-                {"Test5", "Admin123"},
-                {"Test6", "admin123"},
+                {"Test1", "admin123",false},
+                {"Test2", "admin123",false},
+                {"Test3", "Admin123",false},
+                {"Test4", "Admin123",false},
+                {"Test5", "Admin123",false},
+                {"Test6", "admin123",false},
         };
         return loginCredentials;
     }
