@@ -32,6 +32,11 @@ public class US_404 extends BaseDriver {
         MyFunc.wait(10);
         register.registerAPatientBtn.click();
         MyFunc.wait(5);
+        register.given.sendKeys("Jane");
+        register.middleName.sendKeys("Annie");
+        register.familyName.sendKeys("Parker");
+        register.nextButton.click();
+
 
     }
 }
