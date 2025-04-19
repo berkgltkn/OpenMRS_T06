@@ -18,7 +18,7 @@ import java.time.Duration;
 import java.util.Date;
 
 public class BaseDriver {
-   public static Logger LogTutma = LogManager.getLogger();
+    public static Logger LogTutma = LogManager.getLogger();
     public static WebDriver driver;
     public static WebDriverWait wait;
     public static Actions actionDriver;
@@ -31,9 +31,8 @@ public class BaseDriver {
         driver.manage().window().maximize(); // Ekranı max yapıyor.
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-       LogTutma.info("Başlangıç değişkenleri driver,wait,log tanımlandı ve başlatıldı");
+        LogTutma.info("Başlangıç değişkenleri driver,wait,log tanımlandı ve başlatıldı");
     }
 
     @AfterClass
