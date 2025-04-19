@@ -76,6 +76,8 @@ public class US_404 extends BaseDriver {
         String middle = register.confirmedMiddle.getText();
         String familyName = register.confirmedFamilyName.getText();
 
+        System.out.println(name +" "+ middle+" " + familyName);
+
 
 
 
