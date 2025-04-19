@@ -37,6 +37,8 @@ public class US_404 extends BaseDriver {
         register.familyName.sendKeys("Parker");
         register.nextButton.click();
         MyFunc.wait(5);
+        register.genderFemale.click();
+        register.nextButton.click();
 
 
     }
