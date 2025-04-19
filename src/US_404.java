@@ -52,6 +52,9 @@ public class US_404 extends BaseDriver {
         register.postalCode.sendKeys("45687");
         register.nextButton.click();
 
+        register.phoneNumber.sendKeys("5552345678");
+        register.nextButton.click();
+
 
     }
 }
