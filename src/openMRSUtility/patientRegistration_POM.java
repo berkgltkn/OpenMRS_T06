@@ -3,6 +3,7 @@ package openMRSUtility;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import openMRSUtility.BaseDriver;
 
 public class patientRegistration_POM extends BaseDriver {
     public patientRegistration_POM() {
