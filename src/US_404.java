@@ -63,6 +63,8 @@ public class US_404 extends BaseDriver {
         register.personName.sendKeys("Olivia Johnson");
         register.nextButton.click();
 
+        MyFunc.wait(10);
+
 
     }
 }
