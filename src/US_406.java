@@ -30,10 +30,10 @@ public class US_406 extends BaseDriver {
 
         WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("patient-search")));
         searchBox.clear();
-        searchBox.sendKeys("100K18");
+        searchBox.sendKeys("100HNY");
 
         WebElement patientRow = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//tbody//tr/td[contains(text(),'100K18')]/span[contains(text(),'Recent')]")));
+                By.xpath("//tbody//tr/td[contains(text(),'100HNY')]/span[contains(text(),'Recent')]")));
         patientRow.click();
 
         WebElement homeButton = wait.until(ExpectedConditions.elementToBeClickable(
