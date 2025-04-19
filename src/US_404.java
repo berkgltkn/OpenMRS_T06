@@ -40,6 +40,11 @@ public class US_404 extends BaseDriver {
         register.genderFemale.click();
         register.nextButton.click();
 
+        register.birthDateDay.sendKeys("20");
+        register.birthDateMonth.click();
+        register.birthDateYear.sendKeys("1985");
+        register.nextButton.click();
+
 
     }
 }
