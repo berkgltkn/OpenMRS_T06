@@ -69,6 +69,9 @@ public class US_404 extends BaseDriver {
 
         MyFunc.wait(5);
 
+        String finalID = register.confirmedID.getText();
+        System.out.println("finalID = " + finalID);
+
 
     }
 }
