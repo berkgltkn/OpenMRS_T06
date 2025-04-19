@@ -59,6 +59,10 @@ public class US_404 extends BaseDriver {
         register.personName.sendKeys("John Doe");
         register.plusIcon.click();
 
+        register.relationshipTypeChild.click();
+        register.personName.sendKeys("Olivia Johnson");
+        register.nextButton.click();
+
 
     }
 }
