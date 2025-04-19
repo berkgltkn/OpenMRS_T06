@@ -1,10 +1,12 @@
 import openMRSUtility.BaseDriver;
 import openMRSUtility.MyFunc;
 import openMRSUtility.patientRegistration_POM;
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.openqa.selenium.interactions.Actions;
 
 public class US_404 extends BaseDriver {
     @Test
@@ -77,9 +79,5 @@ public class US_404 extends BaseDriver {
         String familyName = register.confirmedFamilyName.getText();
 
         System.out.println(name +" "+ middle+" " + familyName);
-
-
-
-
     }
 }
