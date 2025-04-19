@@ -1,4 +1,4 @@
-import openMRSUtility.BaseDriver;
+import openMRSUtility.BaseDriverParameter;
 import openMRSUtility.MyFunc;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class US_403 extends BaseDriver {
+public class US_403 extends BaseDriverParameter {
     WebDriver driver;
     WebDriverWait wait;
 
@@ -22,7 +22,7 @@ public class US_403 extends BaseDriver {
     public void Setup() {
         LogTutma.info("Log Tutma işlemi başladı");
         driver = new ChromeDriver();
-        actionDriver = new Actions(driver);
+        action = new Actions(driver);
         driver.manage().window().maximize(); // Ekranı max yapıyor.
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 

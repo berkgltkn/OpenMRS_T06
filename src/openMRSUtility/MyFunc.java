@@ -7,8 +7,8 @@ import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-import static openMRSUtility.BaseDriver.driver;
-import static openMRSUtility.BaseDriver.wait;
+import static openMRSUtility.BaseDriverParameter.driver;
+import static openMRSUtility.BaseDriverParameter.wait;
 import static openMRSUtility.WebTool.actionDriver;
 
 

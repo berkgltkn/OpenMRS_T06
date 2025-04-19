@@ -1,17 +1,18 @@
-import openMRSUtility.BaseDriver;
+import openMRSUtility.BaseDriverParameter;
 import openMRSUtility.Login_POM;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class US_409 extends BaseDriver {
+public class US_409 extends BaseDriverParameter {
     @Test(priority = 1)
+    @Parameters("BrowserType")
     public void loginToAccount() {
         Login_POM loginCredentials = new Login_POM();
         driver.get("https://o2.openmrs.org/openmrs/login.htm");
@@ -29,7 +30,7 @@ public class US_409 extends BaseDriver {
     @Test(priority = 2, dependsOnMethods = {"loginToAccount"})
     public void navigationToTheList() {
         Login_POM loginCredentials = new Login_POM();
-        actionDriver.moveToElement(loginCredentials.findPatientRecord).click().build().perform();
+        action.moveToElement(loginCredentials.findPatientRecord).click().build().perform();
         wait.until(ExpectedConditions.urlContains("findpatient"));
         Assert.assertTrue(driver.getCurrentUrl().contains("findpatient"), "Findpatient'a başarılı şekilde geçilemedi.");
     }
@@ -50,28 +51,28 @@ public class US_409 extends BaseDriver {
         wait.until(ExpectedConditions.urlContains("referenceapplication"));
         Assert.assertTrue(driver.getCurrentUrl().contains("referenceapplication"), "Ana web sayfasına dönemedi");
 
-        actionDriver.moveToElement(loginCredentials.dataManagement).click().build().perform();
+        action.moveToElement(loginCredentials.dataManagement).click().build().perform();
         wait.until(ExpectedConditions.urlContains("dataManagement"));
 
-        actionDriver.moveToElement(loginCredentials.mergeThePatientRecords).click().build().perform();
+        action.moveToElement(loginCredentials.mergeThePatientRecords).click().build().perform();
         wait.until(ExpectedConditions.urlContains("mergePatients"));
 
         loginCredentials.firstPatientToMerge.sendKeys(cleanFirst);
         loginCredentials.secondPatientToMerge.sendKeys(cleanSecond);
 
-        actionDriver.moveToElement(loginCredentials.confirmButton, 100, -100).click().build().perform();
+        action.moveToElement(loginCredentials.confirmButton, 100, -100).click().build().perform();
 
         wait.until(ExpectedConditions.elementToBeClickable(By.id("confirm-button")));
-        actionDriver.moveToElement(loginCredentials.confirmButton).click().build().perform();
+        action.moveToElement(loginCredentials.confirmButton).click().build().perform();
         wait.until(ExpectedConditions.urlContains("mergePatients"));
         Assert.assertTrue(driver.getCurrentUrl().contains("mergePatients"), "Başarı ile sayfaya geçildi.");
 
-        actionDriver.scrollToElement(loginCredentials.errorMesseageForMerge).build().perform();
+        action.scrollToElement(loginCredentials.errorMesseageForMerge).build().perform();
         Assert.assertTrue(loginCredentials.errorMesseageForMerge.getText().contains("Merging cannot be"), "Uyarı mesajı doğru verilemedi.");
         loginCredentials.secondPatientForChoose.click();
 
         wait.until(ExpectedConditions.elementToBeClickable(By.id("confirm-button")));
-        actionDriver.scrollToElement(loginCredentials.confirmButton).moveToElement(loginCredentials.confirmButton).click().build().perform();
+        action.scrollToElement(loginCredentials.confirmButton).moveToElement(loginCredentials.confirmButton).click().build().perform();
 
         wait.until(ExpectedConditions.urlContains("patientdashboard"));
 

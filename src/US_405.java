@@ -1,4 +1,4 @@
-import openMRSUtility.BaseDriver;
+import openMRSUtility.BaseDriverParameter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class US_405 extends BaseDriver {
+public class US_405 extends BaseDriverParameter {
     @Test
 public void MyAccountTest(){
         driver.get("https://o2.openmrs.org/openmrs/login.htm");

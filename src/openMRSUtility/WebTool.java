@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class WebTool extends BaseDriver {
+public class WebTool extends BaseDriverParameter {
     public static Actions actionDriver = new Actions(driver);
     public static void waitForVisibilityAndClick(WebElement foundLocator){
         wait.until(ExpectedConditions.visibilityOf(foundLocator));

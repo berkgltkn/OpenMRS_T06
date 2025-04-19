@@ -5,13 +5,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
@@ -25,16 +22,15 @@ public class BaseDriverParameter {
     public static Logger LogTutma = LogManager.getLogger();
     public static WebDriver driver;
     public static WebDriverWait wait;
-    public static Actions actionDriver;
+    public static Actions action;
 
     @BeforeClass
     @Parameters("BrowserType")
     public void Setup(String browserTipi) {
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--lang=en");
-        EdgeOptions edgeOptions = new EdgeOptions();
-        edgeOptions.addArguments("--lang=en");
         switch (browserTipi.toLowerCase()) {
+            case "chrome":
+                driver = new ChromeDriver();
+                break;
             case "firefox":
                 driver = new FirefoxDriver();
                 break;
@@ -48,8 +44,10 @@ public class BaseDriverParameter {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        action= new Actions(driver);
         LogTutma.info("Başlangıç değişkenleri driver,wait,log tanımlandı ve başlatıldı");
     }
+
     @AfterClass
     public void TearDown() {
         MyFunc.wait(3);
@@ -70,7 +68,7 @@ public class BaseDriverParameter {
         LogTutma.info(sonuc.getName() + ",  Metod Bitti" + " Sonuc=" + (sonuc.getStatus() == 1 ? "Passed" : "Failed"));
         LogTutma.warn("WARN : Metod bitti, hata oluşmuş olsa idi bu şekilde eklenebilir.Bir if kontrolü ile");
 
-        if(sonuc.getStatus()==ITestResult.FAILURE){
+        if (sonuc.getStatus() == ITestResult.FAILURE) {
             TakesScreenshot ts = (TakesScreenshot) driver;
 
             File source = ts.getScreenshotAs(OutputType.FILE);

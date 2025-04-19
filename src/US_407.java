@@ -1,6 +1,5 @@
 
 
-import openMRSUtility.BaseDriver;
 import openMRSUtility.BaseDriverParameter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

@@ -1,19 +1,19 @@
-import openMRSUtility.BaseDriver;
+import openMRSUtility.BaseDriverParameter;
 import openMRSUtility.Login_POM;
 import openMRSUtility.MyFunc;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class US_402 extends BaseDriver {
-    @Test(dataProvider = "userCredentials", priority = 1, dependsOnMethods = {"verifyNavigation"})
-    public void verifyNavigation(String username, String password) {
+public class US_402 extends BaseDriverParameter {
+    @Test(priority = 1)
+    @Parameters("BrowserType")
+    public void verifyNavigation() {
         Login_POM loginPageCredential = new Login_POM();
-        SoftAssert softAssert = new SoftAssert();
-        MyFunc myfunc = new MyFunc();
 
         driver.get("https://openmrs.org/en/");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[class='zak-button']")));
@@ -22,13 +22,20 @@ public class US_402 extends BaseDriver {
 
         wait.until(ExpectedConditions.urlContains("g%C3%B6steri"));
 
-        actionDriver.scrollToElement(loginPageCredential.demoButton).click().build().perform();
+        action.scrollToElement(loginPageCredential.demoButton).click().build().perform();
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.demoButton));
         wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.demoButton));
-        actionDriver.scrollToElement(loginPageCredential.demoButton).moveToElement(loginPageCredential.demoButton).click().build().perform();
+        action.scrollToElement(loginPageCredential.demoButton).moveToElement(loginPageCredential.demoButton).click().build().perform();
 
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginIcon));
         Assert.assertTrue(loginPageCredential.loginText.getText().toLowerCase().equalsIgnoreCase("logın"), "Login'e geçilemedi.");
+    }
+
+    @Test(dataProvider = "userCredentials", priority = 2)
+    public void loginToSiteWithError(String username, String password) {
+        Login_POM loginPageCredential = new Login_POM();
+        SoftAssert softAssert = new SoftAssert();
+        MyFunc myfunc = new MyFunc();
 
         wait.until(ExpectedConditions.visibilityOf(loginPageCredential.loginUsername));
         wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginUsername));
@@ -58,7 +65,7 @@ public class US_402 extends BaseDriver {
             case "admin":
                 wait.until(ExpectedConditions.elementToBeClickable(loginPageCredential.loginButton));
                 myfunc.randomSelection();
-                actionDriver.moveToElement(loginPageCredential.loginButton).click().build().perform();
+                action.moveToElement(loginPageCredential.loginButton).click().build().perform();
                 wait.until(ExpectedConditions.urlContains("referenceapplication"));
                 Assert.assertTrue(driver.getCurrentUrl().contains("referenceapplication"), "Başarıyla geçilemedi.");
                 softAssert.assertAll();
@@ -75,9 +82,7 @@ public class US_402 extends BaseDriver {
                 {"Test4", "Admin123"},
                 {"Test5", "Admin123"},
                 {"Test6", "admin123"},
-                {"admin", "Admin123"},
         };
         return loginCredentials;
     }
-
 }

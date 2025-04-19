@@ -1,14 +1,12 @@
-import openMRSUtility.BaseDriver;
+import openMRSUtility.BaseDriverParameter;
 import openMRSUtility.MyFunc;
 import openMRSUtility.patientRegistration_POM;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import org.openqa.selenium.interactions.Actions;
 
-public class US_404 extends BaseDriver {
+public class US_404 extends BaseDriverParameter {
     @Test
     public void patientRegistration() {
         patientRegistration_POM register = new patientRegistration_POM();
@@ -18,10 +16,10 @@ public class US_404 extends BaseDriver {
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[class='zak-button']")));
         register.demoLink.click();
 
-        actionDriver.scrollToElement(register.demoButton).click().build().perform();
+        action.scrollToElement(register.demoButton).click().build().perform();
         wait.until(ExpectedConditions.visibilityOf(register.demoButton));
         wait.until(ExpectedConditions.elementToBeClickable(register.demoButton));
-        actionDriver.scrollToElement(register.demoButton).moveToElement(register.demoButton).click().build().perform();
+        action.scrollToElement(register.demoButton).moveToElement(register.demoButton).click().build().perform();
 
         wait.until(ExpectedConditions.visibilityOf(register.loginIcon));
         Assert.assertTrue(register.loginText.getText().toLowerCase().equalsIgnoreCase("logın"), "Login'e geçilemedi.");

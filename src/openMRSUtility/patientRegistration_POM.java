@@ -3,11 +3,10 @@ package openMRSUtility;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import openMRSUtility.BaseDriver;
 
-public class patientRegistration_POM extends BaseDriver {
+public class patientRegistration_POM extends BaseDriverParameter {
     public patientRegistration_POM() {
-        PageFactory.initElements(BaseDriver.driver, this);
+        PageFactory.initElements(BaseDriverParameter.driver, this);
     }
 
     @FindBy(css = "a[class='zak-button']")

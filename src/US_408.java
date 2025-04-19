@@ -1,16 +1,18 @@
-import openMRSUtility.BaseDriver;
+import openMRSUtility.BaseDriverParameter;
 import openMRSUtility.Login_POM;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class US_408 extends BaseDriver {
+public class US_408 extends BaseDriverParameter {
 
     @Test(priority = 1)
+    @Parameters("BrowserType")
     public void loginToAccount() {
         Login_POM loginCredentials = new Login_POM();
         driver.get("https://o2.openmrs.org/openmrs/login.htm");
@@ -28,7 +30,7 @@ public class US_408 extends BaseDriver {
     @Test(priority = 2, dependsOnMethods = {"loginToAccount"})
     public void navigationToTheList() {
         Login_POM loginCredentials = new Login_POM();
-        actionDriver.moveToElement(loginCredentials.findPatientRecord).click().build().perform();
+        action.moveToElement(loginCredentials.findPatientRecord).click().build().perform();
         wait.until(ExpectedConditions.urlContains("findpatient"));
         Assert.assertTrue(driver.getCurrentUrl().contains("findpatient"), "Findpatient'a başarılı şekilde geçilemedi.");
     }
