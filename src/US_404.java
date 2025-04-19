@@ -45,6 +45,13 @@ public class US_404 extends BaseDriver {
         register.birthDateYear.sendKeys("1985");
         register.nextButton.click();
 
+        register.address1.sendKeys("456 Oak St, Dallas, TX");
+        register.cityVillage.sendKeys("Dallas");
+        register.stateProvince.sendKeys("Texas");
+        register.country.sendKeys("USA");
+        register.postalCode.sendKeys("45687");
+        register.nextButton.click();
+
 
     }
 }
