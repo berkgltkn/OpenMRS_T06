@@ -72,6 +72,12 @@ public class US_404 extends BaseDriver {
         String finalID = register.confirmedID.getText();
         System.out.println("finalID = " + finalID);
 
+        String name = register.confirmedName.getText();
+        String middle = register.confirmedMiddle.getText();
+        String familyName = register.confirmedFamilyName.getText();
+
+
+
 
     }
 }
