@@ -30,6 +30,7 @@ public class US_404 extends BaseDriver {
         register.loginButton.click();
 
         MyFunc.wait(10);
+        register.registerAPatientBtn.click();
 
     }
 }
