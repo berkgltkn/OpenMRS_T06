@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="CrossBrowserSuite" parallel="tests" thread-count="2">
+    <test name="ChromeTests">
+        <parameter name="BrowserType" value="chrome"/>
+        <classes>
+            <class name="US_401"></class>
+            <class name="US_402"></class>
+            <class name="US_403"></class>
+            <class name="US_405"></class>
+            <class name="US_407"></class>
+        </classes>
+    </test>
+
+    <test name="EdgeTests">
+        <parameter name="BrowserType" value="edge"/>
+        <classes>
+            <class name="US_401"></class>
+            <class name="US_402"></class>
+            <class name="US_403"></class>
+            <class name="US_405"></class>
+            <class name="US_407"></class>
+        </classes>
+    </test>
+
+    <test name="Smoke Test">
+        <groups>
+            <run>
+                <include name="Smoke Test"></include>
+            </run>
+        </groups>
+    </test>
+</suite>

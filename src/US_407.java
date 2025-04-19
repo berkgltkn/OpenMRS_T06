@@ -1,13 +1,16 @@
 
+
 import openMRSUtility.BaseDriver;
+import openMRSUtility.BaseDriverParameter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 import org.testng.annotations.*;
 
-public class US_407 extends BaseDriver {
-    @Test(groups = "Smoke Test")
+public class US_407 extends BaseDriverParameter {
+    @Test(groups = {"Smoke Test","Regression"})
+    @Parameters("BrowserType")
     public void PatientDeletion() {
         driver.get("https://o2.openmrs.org/openmrs/login.htm");
 
