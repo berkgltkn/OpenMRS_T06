@@ -55,6 +55,10 @@ public class US_404 extends BaseDriver {
         register.phoneNumber.sendKeys("5552345678");
         register.nextButton.click();
 
+        register.relationshipTypeParent.click();
+        register.personName.sendKeys("John Doe");
+        register.plusIcon.click();
+
 
     }
 }
