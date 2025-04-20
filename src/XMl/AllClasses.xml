@@ -7,7 +7,6 @@
         <classes>
             <class name="US_402"></class>
             <class name="US_403"></class>
-            <class name="US_401"></class>
             <class name="US_404"></class>
             <class name="US_405"></class>
             <class name="US_406"></class>
@@ -18,12 +17,11 @@
         </classes>
     </test>
 
-    <test name="ChromeTests">
+    <test name="EdgeTest">
         <parameter name="BrowserType" value="edge"/>
         <classes>
             <class name="US_402"></class>
             <class name="US_403"></class>
-            <class name="US_401"></class>
             <class name="US_404"></class>
             <class name="US_405"></class>
             <class name="US_406"></class>
@@ -33,5 +31,4 @@
             <class name="US_410"></class>
         </classes>
     </test>
-
 </suite>
