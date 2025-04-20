@@ -40,10 +40,4 @@ public class ReusableMethods {
         softAssert.assertTrue(loginPageCredential.loginErrorMessageInvalid.getText().contains("Invalid username"), "Password şifre doğru");
         driver.navigate().refresh();
     }
-
-    public static void waitForVisibilityAndClick(WebElement foundLocator){
-        wait.until(ExpectedConditions.visibilityOf(foundLocator));
-        wait.until(ExpectedConditions.elementToBeClickable(foundLocator));
-        actionDriver.moveToElement(foundLocator).click().build().perform();
-    }
 }
