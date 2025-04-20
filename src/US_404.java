@@ -31,14 +31,18 @@ public class US_404 extends BaseDriverParameter {
         register.pharmacy.click();
         register.loginButton.click();
 
-        MyFunc.wait(10);
+        wait.until(ExpectedConditions.visibilityOf(register.registerAPatientBtn));
+        wait.until(ExpectedConditions.elementToBeClickable(register.registerAPatientBtn));
         register.registerAPatientBtn.click();
-        MyFunc.wait(5);
+
+        wait.until(ExpectedConditions.visibilityOf(register.given));
         register.given.sendKeys("Jane");
         register.middleName.sendKeys("Annie");
         register.familyName.sendKeys("Parker");
         register.nextButton.click();
-        MyFunc.wait(5);
+
+        wait.until(ExpectedConditions.visibilityOf(register.genderFemale));
+        wait.until(ExpectedConditions.elementToBeClickable(register.genderFemale));
         register.genderFemale.click();
         register.nextButton.click();
 
@@ -65,11 +69,11 @@ public class US_404 extends BaseDriverParameter {
         register.personName.sendKeys("Olivia Johnson");
         register.nextButton.click();
 
-        MyFunc.wait(10);
-
+        wait.until(ExpectedConditions.visibilityOf(register.confirm));
+        wait.until(ExpectedConditions.elementToBeClickable(register.confirm));
         register.confirm.click();
 
-        MyFunc.wait(5);
+        wait.until(ExpectedConditions.visibilityOf(register.confirmedID));
 
         String finalID = register.confirmedID.getText();
         System.out.println("finalID = " + finalID);
@@ -77,7 +81,6 @@ public class US_404 extends BaseDriverParameter {
         String name = register.confirmedName.getText();
         String middle = register.confirmedMiddle.getText();
         String familyName = register.confirmedFamilyName.getText();
-
-        System.out.println(name +" "+ middle+" " + familyName);
+        System.out.println(name + " " + middle + " " + familyName);
     }
 }
